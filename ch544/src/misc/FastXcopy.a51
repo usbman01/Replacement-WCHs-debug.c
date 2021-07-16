@@ -10,7 +10,7 @@ sfr XBUS_AUX = 0xA2;
 
     RSEG   ?PR?_fastxcpy8?FASTXCOPY
 _fastxcpy8: 
-       INC  XBUS_AUX   ;second DPTR is always dest      
+       MOV  XBUS_AUX,#0x01 ;select DPTR1
        MOV  DPH,R6 
        MOV  DPL,R7     ;destination
           
@@ -23,7 +23,7 @@ _fastxcpy8:
        JZ   ?C001      ;nothing todo 
 
 ?C000: MOVX A,@DPTR    ;read source
-       INC  DPTR       ;maybe enable autoinc on DPTR0
+       INC  DPTR       ;no autoinc its not irqsave
        DB   0A5H       ;MOVX @DPTR1,A & INC DPTR1
        DJNZ R7,?C000
 ?C001: RET
