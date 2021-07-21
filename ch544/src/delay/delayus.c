@@ -1,4 +1,4 @@
-#include ".\..\inc\ch554.h"
+#include "..\..\inc\ch554.h"
 
 //24 MHz
 void mdelay24_us(unsigned char us)
