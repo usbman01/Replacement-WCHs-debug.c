@@ -1,4 +1,4 @@
-#include ".\..\inc\ch554.h"
+#include "..\..\inc\ch554.h"
 
 unsigned int fSysSelect(unsigned char fSelector)
 {
