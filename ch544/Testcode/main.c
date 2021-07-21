@@ -14,8 +14,8 @@ void main(void)
    fSysSelect(0x06);
    while(1)
    {
-	    fastxcpy8(inbuf,outbuf,64);
+      fastxcpy8(inbuf,outbuf,64);
       mDelaymS(250);
-	 }
+   }
 }       
  
