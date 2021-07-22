@@ -22,7 +22,9 @@ _fastxcpy8:
        MOV  R7,DPL
          
        MOV  XBUS_AUX,#0x01; select DPTR1, no auto inc     
-       MOV  DPTR,#_fastxcpy8_PARM_2 ;(src param)
+       MOV  DPH,_fastxcpy8_PARM_2+1
+       MOV  DPL,_fastxcpy8_PARM_2+0
+       ;MOV  DPTR,#_fastxcpy8_PARM_2 ;(src param)
           
        DEC  XBUS_AUX   ;select DPTR0
        MOV  DPH,R6 

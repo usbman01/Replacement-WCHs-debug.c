@@ -1,4 +1,4 @@
-;*** SDCC asm version
+;*** SDCC asm version translate with 
 ;    translate with:
 ;    sdas8051 -losg fastccopy.asm    
 ;***
