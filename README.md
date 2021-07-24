@@ -1,2 +1,2 @@
 # Replacement-WCHs-debug.c
-still incomplete, neets fixing
+still incomplete, needs fixing
