@@ -15,5 +15,5 @@ void Uart0SimpleInit(unsigned char reload,smod)
   T2MOD = T2MOD | bTMR_CLK | bT1_CLK;     /* runing at fsys */         
   TH1   = reload;                         /* load the calculated reload value*/  
   TR1   = 1;                              /* Timer1 run */                          
-  SCON  = 0x51;                           /* 8bit var baudrate */
+  SCON  = 0x52;                           /* 8bit var baudrate */
 }
