@@ -9,8 +9,11 @@ sfr XBUS_AUX = 0xA2;
     $REGUSE _fastccpy8(R7,A,DPTR)
 
     RSEG   ?PR?_fastccpy8?FASTCCOPY
-_fastccpy8: 
-       MOV  XBUS_AUX,#0x01; select DPTR1, no auto inc     
+_fastccpy8:
+       PUSH XBUS_AUX
+       MOV  XBUS_AUX,#0x01; select DPTR1, no auto inc
+       PUSH DPH
+       PUSH DPL
        MOV  DPH,R6 
        MOV  DPL,R7     ;destination
           
@@ -23,10 +26,14 @@ _fastccpy8:
        JZ   ?C001      ;nothing todo 
 
 ?C000: CLR  A
-       MOVC A,@A+DPTR   ;read source
+       MOVC A,@A+DPTR  ;read source
        INC  DPTR       ;no autoinc its not irq save
        DB   0A5H       ;MOVX @DPTR1,A & INC DPTR1
        DJNZ R7,?C000
-?C001: RET
+?C001: INC  XBUS_AUX
+       POP  DPL
+       POP  DPH
+       POP  XBUS_AUX
+       RET
 
 END
