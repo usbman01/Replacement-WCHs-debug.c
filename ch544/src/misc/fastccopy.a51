@@ -1,4 +1,4 @@
-;void fastxcpy8 (unsigned char xdata *dest, //r6r7
+;void fastccpy8 (unsigned char xdata *dest, //r6r7
 ;                unsigned char code  *src,  //r4r5 
 ;                unsigned char  size)       //r3    
 sfr XBUS_AUX = 0xA2; 
